@@ -49,6 +49,28 @@ func InsertHeroNode2(head *HeroNode, newHead *HeroNode) {
 
 }
 
+// 删除结点
+func DelHeroNode(head *HeroNode, id int) {
+	//先找到该链表的最后一个结点，再创建一个辅助结点
+	temp := head
+	flag := false
+	for {
+		if temp.next == nil {
+			break
+		} else if temp.next.no == id {
+			flag = true
+			break
+		}
+		temp = temp.next
+	}
+	if flag {
+		temp.next = temp.next.next
+	} else {
+		fmt.Println("No id")
+	}
+
+}
+
 // 显示链表的所有结点信息
 func ListHeroNode(head *HeroNode) {
 	temp := head
@@ -70,7 +92,8 @@ func ListHeroNode(head *HeroNode) {
 /*
 链表：链表是有序的列表
 单向链表：为了对单向链表比较好操作增删改查，是带有头结点，作用是标识链表的头，本身这个结点不存放数据
-注意：
+注意：缺陷，1.查找只能是单向查找，
+2.单向列表不能自我删除，只能依靠辅助结点
 
 思路分析：
 */
@@ -89,7 +112,7 @@ func main() {
 	//添加
 	InsertHeroNode(head, head1)
 	InsertHeroNode2(head, head2)
-
+	DelHeroNode(head, 0)
 	//显示
 	ListHeroNode(head)
 }
