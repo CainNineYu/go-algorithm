@@ -51,7 +51,7 @@ func (this *CircleQueue) IsEmpty() bool {
 }
 
 // 显示队列
-func (this *CircleQueue) ListQueue() bool {
+func (this *CircleQueue) ListQueue() {
 	fmt.Println("环形队列情况如下")
 	//取出当前队列有多少个元素
 	size := this.Size()
@@ -65,7 +65,6 @@ func (this *CircleQueue) ListQueue() bool {
 		tempHead = (tempHead + 1) % this.maxSize
 	}
 	fmt.Println()
-	return this.tail == this.head
 }
 
 // 取出环形队列有多少个元素
