@@ -37,7 +37,7 @@ func quickSort(left int, right int, arr []int) {
 			l++
 		}
 	}
-	//此次不用再比较，再移动一位就行了，没有这个则卡死在此处
+	//此次不用再比较，再移动一位就行了，没有这个则是死递归
 	if l == r {
 		l++
 		r--
