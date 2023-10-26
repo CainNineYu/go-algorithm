@@ -10,6 +10,7 @@ func quickSort(left int, right int, arr []int) {
 	r := right
 	//中轴，支点（也可以找最后一个数），中间的话效果高点
 	pivot := arr[(l+r)/2]
+
 	//temp := 0
 	//目标，将比pivot数小的放在左边，大的放在右边
 	//for循环结束后，左右两边就搞定了
@@ -22,13 +23,13 @@ func quickSort(left int, right int, arr []int) {
 		for arr[r] > pivot {
 			r--
 		}
-		//表面此次分解任务已经完成
+		//表明此次分解任务已经完成
 		if l >= r {
 			break
 		}
 		//交换
 		arr[l], arr[r] = arr[r], arr[l]
-		//优化，相等则不交换
+		//优化，相等则不交换，
 		if arr[l] == pivot {
 			r--
 		}
@@ -57,6 +58,6 @@ func quickSort(left int, right int, arr []int) {
 
 func main() {
 	//定义数组
-	arr := []int{1, 2, 3, 10, 5, -1, 10, 1, 0, 999}
+	arr := []int{1, 2, 3, 10, 5, -1, 10, 0, 999, 0}
 	quickSort(0, len(arr)-1, arr)
 }
